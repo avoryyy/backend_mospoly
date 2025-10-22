@@ -1,64 +1,25 @@
-// Сервис для работы с пользователями
-public interface IUserService
-{
-    string GetUserName(int userId);
-}
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-public class UserService : IUserService
-{
-    public string GetUserName(int userId)
-    {
-        return userId == 1 ? "Администратор" : "Пользователь";
-    }
-}
+namespace Lab1;
 
-// Сервис для логирования
-public interface ILoggerService
-{
-    void Log(string message);
-}
-
-public class ConsoleLoggerService : ILoggerService
-{
-    public void Log(string message)
-    {
-        Console.WriteLine($"[LOG] {DateTime.Now}: {message}");
-    }
-}
-
-// Основной класс приложения
-public class Application
-{
-    private readonly IUserService _userService;
-    private readonly ILoggerService _logger;
-
-    public Application(IUserService userService, ILoggerService logger)
-    {
-        _userService = userService;
-        _logger = logger;
-    }
-
-    public void Run()
-    {
-        _logger.Log("Приложение запущено");
-
-        var userName = _userService.GetUserName(1);
-        Console.WriteLine($"Текущий пользователь: {userName}");
-
-        _logger.Log("Приложение завершает работу");
-    }
-}
-
+/// Главный класс программы, настраивающий внедрение зависимостей и запускающий приложение
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        // Создаем экземпляры сервисов
-        ILoggerService logger = new ConsoleLoggerService();
-        IUserService userService = new UserService();
+        // Создание хоста с настройкой служб
+        var host = Host.CreateDefaultBuilder(args)
+            .ConfigureServices((context, services) =>
+            {
+                // Регистрация зависимостей
+                services.AddSingleton<IMessageService, MessageService>();
+                services.AddSingleton<ApplicationService>();
+            })
+            .Build();
 
-        // Внедряем зависимости через конструктор
-        var app = new Application(userService, logger);
+        // Получаем основной сервис приложения
+        var app = host.Services.GetRequiredService<ApplicationService>();
         app.Run();
     }
 }

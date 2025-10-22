@@ -1,0 +1,31 @@
+2025-10-16 06:56:30.535 +03:00 [INF] Now listening on: http://localhost:5202
+2025-10-16 06:56:30.576 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-16 06:56:30.577 +03:00 [INF] Hosting environment: Development
+2025-10-16 06:56:30.577 +03:00 [INF] Content root path: C:\Users\Александр\MPU\2.2\Бэк\backend_mospoly\lab7\Lab7
+2025-10-16 06:56:30.676 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5202/ - null null
+2025-10-16 06:56:30.707 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5202/ - 404 0 null 32.0718ms
+2025-10-16 06:56:30.720 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5202/, Response status code: 404
+2025-10-16 06:56:36.032 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5202/api/LogDemo/info - null null
+2025-10-16 06:56:36.036 +03:00 [INF] Executing endpoint 'Lab07.Controllers.LogDemoController.InfoLog (Lab7)'
+2025-10-16 06:56:36.043 +03:00 [INF] Route matched with {action = "InfoLog", controller = "LogDemo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult InfoLog() on controller Lab07.Controllers.LogDemoController (Lab7).
+2025-10-16 06:56:36.044 +03:00 [INF] Информационное сообщение для InfoLog
+2025-10-16 06:56:36.047 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-10-16 06:56:36.050 +03:00 [INF] Executed action Lab07.Controllers.LogDemoController.InfoLog (Lab7) in 4.4473ms
+2025-10-16 06:56:36.050 +03:00 [INF] Executed endpoint 'Lab07.Controllers.LogDemoController.InfoLog (Lab7)'
+2025-10-16 06:56:36.050 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5202/api/LogDemo/info - 200 null text/plain; charset=utf-8 18.3343ms
+2025-10-16 06:59:44.144 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5202/api/LogDemo/warning - null null
+2025-10-16 06:59:44.145 +03:00 [INF] Executing endpoint 'Lab07.Controllers.LogDemoController.WarningLog (Lab7)'
+2025-10-16 06:59:44.147 +03:00 [INF] Route matched with {action = "WarningLog", controller = "LogDemo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult WarningLog() on controller Lab07.Controllers.LogDemoController (Lab7).
+2025-10-16 06:59:44.147 +03:00 [WRN] Предупреждение для WarningLog
+2025-10-16 06:59:44.147 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-10-16 06:59:44.148 +03:00 [INF] Executed action Lab07.Controllers.LogDemoController.WarningLog (Lab7) in 0.8124ms
+2025-10-16 06:59:44.148 +03:00 [INF] Executed endpoint 'Lab07.Controllers.LogDemoController.WarningLog (Lab7)'
+2025-10-16 06:59:44.148 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5202/api/LogDemo/warning - 200 null text/plain; charset=utf-8 4.3455ms
+2025-10-16 07:01:16.470 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5202/api/LogDemo/error - null null
+2025-10-16 07:01:16.471 +03:00 [INF] Executing endpoint 'Lab07.Controllers.LogDemoController.ErrorLog (Lab7)'
+2025-10-16 07:01:16.472 +03:00 [INF] Route matched with {action = "ErrorLog", controller = "LogDemo"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ErrorLog() on controller Lab07.Controllers.LogDemoController (Lab7).
+2025-10-16 07:01:16.472 +03:00 [ERR] Ошибка для ErrorLog
+2025-10-16 07:01:16.472 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-10-16 07:01:16.472 +03:00 [INF] Executed action Lab07.Controllers.LogDemoController.ErrorLog (Lab7) in 0.3981ms
+2025-10-16 07:01:16.472 +03:00 [INF] Executed endpoint 'Lab07.Controllers.LogDemoController.ErrorLog (Lab7)'
+2025-10-16 07:01:16.472 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5202/api/LogDemo/error - 200 null text/plain; charset=utf-8 2.1699ms

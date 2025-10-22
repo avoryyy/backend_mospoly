@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка CORS</title>
+</head>
+
+<body>
+    <h2>Тест CORS запроса к ASP.NET Core API</h2>
+    <button id="getBtn">GET /api/data/info</button>
+    <button id="postBtn">POST /api/data/submit</button>
+
+    <pre id="output"></pre>
+
+    <script>
+        const API_URL = "http://localhost:5187/api/data";
+
+        const output = document.getElementById("output");
+
+        document.getElementById("getBtn").onclick = async () => {
+            try {
+                const response = await fetch(`${API_URL}/info`);
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (err) {
+                output.textContent = "Ошибка CORS: " + err;
+            }
+        };
+
+        document.getElementById("postBtn").onclick = async () => {
+            try {
+                const response = await fetch(`${API_URL}/submit`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ test: "CORS работает!" })
+                });
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (err) {
+                output.textContent = "Ошибка CORS: " + err;
+            }
+        };
+    </script>
+</body>
+
+</html>
